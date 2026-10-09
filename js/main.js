@@ -84,15 +84,27 @@
   var lbCap = document.getElementById('lbCap');
   var galLinks = Array.prototype.slice.call(document.querySelectorAll('.gal a'));
   var idx = 0;
+  function visibleLinks() {
+    return galLinks.filter(function (a) {
+      return !a.closest('figure').classList.contains('is-hidden');
+    });
+  }
+  var lbCount = document.getElementById('lbCount');
   function show(i) {
-    idx = (i + galLinks.length) % galLinks.length;
-    var a = galLinks[idx];
+    var vis = visibleLinks();
+    if (!vis.length) return;
+    idx = (i + vis.length) % vis.length;
+    var a = vis[idx];
+    lb._lastA = a;
     lbImg.src = a.href;
     lbImg.alt = a.querySelector('img').alt;
     lbCap.textContent = a.getAttribute('data-caption') || '';
+    if (lbCount) lbCount.textContent = (idx + 1) + ' / ' + vis.length;
   }
-  function openLb(i) {
-    show(i);
+  function openLb(a) {
+    lb._lastA = a;
+    var vis = visibleLinks();
+    show(vis.indexOf(a));
     lb.hidden = false;
     document.body.style.overflow = 'hidden';
     document.getElementById('lbClose').focus();
@@ -100,10 +112,10 @@
   function closeLb() {
     lb.hidden = true;
     document.body.style.overflow = '';
-    if (galLinks[idx]) galLinks[idx].focus();
+    if (lb._lastA) lb._lastA.focus();
   }
-  galLinks.forEach(function (a, i) {
-    a.addEventListener('click', function (e) { e.preventDefault(); openLb(i); });
+  galLinks.forEach(function (a) {
+    a.addEventListener('click', function (e) { e.preventDefault(); openLb(a); });
   });
   if (lb) {
     document.getElementById('lbClose').addEventListener('click', closeLb);
@@ -112,9 +124,15 @@
     lb.addEventListener('click', function (e) { if (e.target === lb) closeLb(); });
     document.addEventListener('keydown', function (e) {
       if (lb.hidden) return;
-      if (e.key === 'Escape') closeLb();
+      if (e.key === 'Escape') { closeLb(); return; }
       if (e.key === 'ArrowLeft') show(idx - 1);
       if (e.key === 'ArrowRight') show(idx + 1);
+      if (e.key === 'Tab') {
+        var f = lb.querySelectorAll('button');
+        var first = f[0], last = f[f.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
     });
   }
 
@@ -123,6 +141,8 @@
   if (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
+      var hp = form.querySelector('[name="podjetje"]');
+      if (hp && hp.value) { hp.value = ''; return; } // bot
       if (!form.checkValidity()) { form.reportValidity(); return; }
       var ok = document.getElementById('formOk');
       ok.hidden = false;
@@ -130,6 +150,38 @@
       ok.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
     });
   }
+
+
+  /* ---------- Header senca + gumb "na vrh" ---------- */
+  var head = document.querySelector('.site-head');
+  var toTop = document.getElementById('toTop');
+  function onScrollUi() {
+    var y = window.scrollY;
+    if (head) head.classList.toggle('scrolled', y > 8);
+    if (toTop) toTop.classList.toggle('show', y > 600);
+  }
+  window.addEventListener('scroll', onScrollUi, { passive: true });
+  onScrollUi();
+  if (toTop) {
+    toTop.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+      var brand = document.querySelector('.brand');
+      if (brand) brand.focus && brand.focus();
+    });
+  }
+
+  /* ---------- Filtri galerije ---------- */
+  var chips = Array.prototype.slice.call(document.querySelectorAll('.chip'));
+  var figs = Array.prototype.slice.call(document.querySelectorAll('.gal figure[data-cat]'));
+  chips.forEach(function (ch) {
+    ch.addEventListener('click', function () {
+      var f = ch.getAttribute('data-f');
+      chips.forEach(function (c) { c.setAttribute('aria-pressed', c === ch ? 'true' : 'false'); });
+      figs.forEach(function (fg) {
+        fg.classList.toggle('is-hidden', f !== 'all' && fg.getAttribute('data-cat') !== f);
+      });
+    });
+  });
 
   /* ---------- Leto v nogah ---------- */
   var leto = document.getElementById('leto');
