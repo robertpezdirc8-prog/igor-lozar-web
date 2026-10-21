@@ -2,6 +2,8 @@
 (function () {
   'use strict';
 
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   /* ---------- Mobilni meni ---------- */
   var burger = document.getElementById('burger');
   var nav = document.getElementById('mainNav');
@@ -41,7 +43,6 @@
   spy();
 
   /* ---------- Reveal animacije ob drsenju ---------- */
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var revs = document.querySelectorAll('.reveal');
   if (!reduce && 'IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (ents) {
@@ -78,10 +79,33 @@
     counters.forEach(runCount);
   }
 
+  /* ---------- Filtri galerije ---------- */
+  var chips = Array.prototype.slice.call(document.querySelectorAll('.chip'));
+  var figs = Array.prototype.slice.call(document.querySelectorAll('.gal figure[data-cat]'));
+  var galCount = document.getElementById('galCount');
+  function catsOf(el) { return (el.getAttribute('data-cat') || '').split(/\s+/); }
+  function applyFilter(f) {
+    var shown = 0;
+    figs.forEach(function (fg) {
+      var hit = f === 'all' || catsOf(fg).indexOf(f) !== -1;
+      fg.classList.toggle('is-hidden', !hit);
+      if (hit) shown++;
+    });
+    if (galCount) galCount.textContent = 'Prikazanih ' + shown + ' od ' + figs.length + ' realizacij.';
+  }
+  chips.forEach(function (ch) {
+    ch.addEventListener('click', function () {
+      chips.forEach(function (c) { c.setAttribute('aria-pressed', c === ch ? 'true' : 'false'); });
+      applyFilter(ch.getAttribute('data-f'));
+    });
+  });
+  applyFilter('all');
+
   /* ---------- Lightbox galerija ---------- */
   var lb = document.getElementById('lightbox');
   var lbImg = document.getElementById('lbImg');
   var lbCap = document.getElementById('lbCap');
+  var lbCount = document.getElementById('lbCount');
   var galLinks = Array.prototype.slice.call(document.querySelectorAll('.gal a'));
   var idx = 0;
   function visibleLinks() {
@@ -89,20 +113,20 @@
       return !a.closest('figure').classList.contains('is-hidden');
     });
   }
-  var lbCount = document.getElementById('lbCount');
   function show(i) {
     var vis = visibleLinks();
     if (!vis.length) return;
     idx = (i + vis.length) % vis.length;
     var a = vis[idx];
+    var img = a.querySelector('img');
+    var cap = a.closest('figure').querySelector('figcaption');
     lb._lastA = a;
-    lbImg.src = a.href;
-    lbImg.alt = a.querySelector('img').alt;
-    lbCap.textContent = a.getAttribute('data-caption') || '';
+    lbImg.src = (img && img.currentSrc) || a.href;
+    lbImg.alt = (img && img.alt) || '';
+    lbCap.textContent = cap ? cap.textContent : '';
     if (lbCount) lbCount.textContent = (idx + 1) + ' / ' + vis.length;
   }
   function openLb(a) {
-    lb._lastA = a;
     var vis = visibleLinks();
     show(vis.indexOf(a));
     lb.hidden = false;
@@ -136,21 +160,83 @@
     });
   }
 
-  /* ---------- Obrazec povpraševanja (demo potrditev) ---------- */
+  /* ---------- Obrazec povpraševanja ---------- */
+  var EMAIL = 'lesne.storitve@gmail.com';
+  var WA = '38641276195';
   var form = document.getElementById('quoteForm');
   if (form) {
+    var res = document.getElementById('formResult');
+    var msg = document.getElementById('formMsg');
+    var acts = document.getElementById('formActions');
+    var mailLink = document.getElementById('sendMail');
+    var waLink = document.getElementById('sendWa');
+
+    function val(n) {
+      var el = form.elements[n];
+      return el ? String(el.value).trim() : '';
+    }
+    function compose() {
+      return [
+        'Povpraševanje s spletne strani ograje-lozar',
+        '',
+        'Ime: ' + val('ime'),
+        'Telefon: ' + val('tel'),
+        'E-pošta: ' + val('mail'),
+        'Lokacija objekta: ' + (val('lok') || '—'),
+        'Zanima me: ' + val('vrsta'),
+        'Okvirna mera: ' + (val('mera') || '—'),
+        '',
+        'Sporočilo:',
+        val('msg') || '—'
+      ].join('\n');
+    }
+    function wire(body) {
+      var subject = 'Povpraševanje — ' + val('vrsta') + ' (' + val('ime') + ')';
+      mailLink.href = 'mailto:' + EMAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+      waLink.href = 'https://wa.me/' + WA + '?text=' + encodeURIComponent(body);
+    }
+
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      var hp = form.querySelector('[name="podjetje"]');
-      if (hp && hp.value) { hp.value = ''; return; } // bot
-      if (!form.checkValidity()) { form.reportValidity(); return; }
-      var ok = document.getElementById('formOk');
-      ok.hidden = false;
-      form.querySelectorAll('input,select,textarea,button').forEach(function (el) { el.disabled = true; });
-      ok.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
+      var hp = form.elements.podjetje;
+      if (hp && hp.value) { hp.value = ''; res.hidden = true; return; }
+      if (!form.checkValidity()) { res.hidden = true; form.reportValidity(); return; }
+
+      var body = compose();
+      wire(body);
+      res.hidden = false;
+
+      var endpoint = (form.getAttribute('data-endpoint') || '').trim();
+      if (!endpoint) {
+        acts.hidden = false;
+        msg.textContent = 'Sporočilo je pripravljeno. Izberi, kje ga odpošlješ — do Igorja pride celotno besedilo, kot si ga vpisal.';
+      } else {
+        acts.hidden = true;
+        msg.textContent = 'Pošiljam …';
+        fetch(endpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify({
+            ime: val('ime'), tel: val('tel'), mail: val('mail'),
+            lok: val('lok'), vrsta: val('vrsta'), mera: val('mera'), msg: val('msg')
+          })
+        }).then(function (r) {
+          if (!r.ok) throw new Error('HTTP ' + r.status);
+          msg.textContent = 'Hvala, ' + val('ime') + '. Povpraševanje je bilo poslano — odgovorim na ' + val('tel') + ' ali ' + val('mail') + '.';
+          form.querySelectorAll('input,select,textarea,button').forEach(function (el) { el.disabled = true; });
+        })['catch'](function () {
+          msg.textContent = 'Strežnik za pošiljanje ne odgovarja. Sporočilo je kljub temu pripravljeno — odpošlji ga neposredno.';
+          acts.hidden = false;
+        });
+      }
+      res.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
+    });
+
+    ['ime', 'tel', 'mail', 'lok', 'vrsta', 'mera', 'msg'].forEach(function (n) {
+      var el = form.elements[n];
+      if (el) el.addEventListener('input', function () { if (!res.hidden) wire(compose()); });
     });
   }
-
 
   /* ---------- Header senca + gumb "na vrh" ---------- */
   var head = document.querySelector('.site-head');
@@ -165,23 +251,8 @@
   if (toTop) {
     toTop.addEventListener('click', function () {
       window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
-      var brand = document.querySelector('.brand');
-      if (brand) brand.focus && brand.focus();
     });
   }
-
-  /* ---------- Filtri galerije ---------- */
-  var chips = Array.prototype.slice.call(document.querySelectorAll('.chip'));
-  var figs = Array.prototype.slice.call(document.querySelectorAll('.gal figure[data-cat]'));
-  chips.forEach(function (ch) {
-    ch.addEventListener('click', function () {
-      var f = ch.getAttribute('data-f');
-      chips.forEach(function (c) { c.setAttribute('aria-pressed', c === ch ? 'true' : 'false'); });
-      figs.forEach(function (fg) {
-        fg.classList.toggle('is-hidden', f !== 'all' && fg.getAttribute('data-cat') !== f);
-      });
-    });
-  });
 
   /* ---------- Leto v nogah ---------- */
   var leto = document.getElementById('leto');

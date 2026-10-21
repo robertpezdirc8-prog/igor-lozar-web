@@ -1,0 +1,37 @@
+name: Preveri stran
+
+# Vrata tecejo na vsak push, da rezultat ni odvisen od tega,
+# ali je kdo na svojemu racunalniku pozabil ugniti scripts/preveri.py.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: preveri-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  vrata:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Namesti odvisnosti vrat
+        run: python -m pip install -r requirements.txt
+
+      - name: Vrata pripravljenosti strani
+        run: python scripts/preveri.py --verbose
+
+      - name: Mutacijski test (vrata se morajo obnes ob vsiljeni napaki)
+        run: python scripts/mutacijski-test.py

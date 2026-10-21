@@ -1,0 +1,13 @@
+# Systemsko
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Urejevalniki
+.vscode/
+.idea/
+*.swp
+
+# Začasno
+*.log
+*.tmp

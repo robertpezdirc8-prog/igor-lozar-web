@@ -3,38 +3,47 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- GitHub Pages ne podpira _headers, zato je enaka politika podana kot meta. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'sha256-/x7W7R75k8Roq0WaVRQX9blP4OufE5xbAdzklGxsgpw='; connect-src 'self'; form-action 'self'; base-uri 'self'; object-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Ograje Lozar — Igor Lozar s.p. | Lesene, WPC in kovinske ograje, nadstreški, terase in fasade | Griblje pri Gradcu</title>
-<meta name="description" content="Ograje Lozar (Igor Lozar s.p., Griblje pri Gradcu): izdelava in montaža lesenih, WPC, panelnih in kovinskih ograj, lesenih nadstreškov s steklom, WPC teras in fasad. Zanesljivo po celotni Sloveniji od leta 2009. Najboljše razmerje med kvaliteto in ceno.">
-<meta name="keywords" content="ograje, lesene ograje, WPC ograje, panelne ograje, kovinske ograje, nadstreški, wpc terase, fasade, Griblje, Gradac, Bela Krajina, Igor Lozar">
+<meta name="description" content="Ograje Lozar (Igor Lozar s.p., Griblje pri Gradcu): izdelava in montaža lesenih, WPC, panelnih in kovinskih ograj, lesenih nadstreškov s steklom, WPC teras in fasad. Zanesljivo po celotni Sloveniji od leta 1996. Brezplačna izmera in svetovanje na kraju samem.">
 <meta name="author" content="Igor Lozar s.p.">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="https://robertpezdirc8-prog.github.io/igor-lozar-web/">
 <meta name="theme-color" content="#7a4a1f">
 <meta name="color-scheme" content="light">
 
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+
 <!-- Open Graph / Twitter -->
-<meta property="og:type" content="business.business">
+<meta property="og:type" content="website">
 <meta property="og:site_name" content="Ograje Lozar">
 <meta property="og:title" content="Ograje Lozar — kakovostne ograje, nadstreški in terase, ki trajajo">
-<meta property="og:description" content="Izdelava in montaža lesenih, WPC in kovinskih ograj ter lesenih nadstreškov s steklom. Celotna Slovenija. Pokličite 041 276 195.">
+<meta property="og:description" content="Izdelava in montaža lesenih, WPC in kovinskih ograj ter lesenih nadstreškov s steklom. Celotna Slovenija. Brezplačna izmera. Pokličite 041 276-195.">
 <meta property="og:url" content="https://robertpezdirc8-prog.github.io/igor-lozar-web/">
-<meta property="og:image" content="https://robertpezdirc8-prog.github.io/igor-lozar-web/img/hero.jpg">
+<meta property="og:image" content="https://robertpezdirc8-prog.github.io/igor-lozar-web/img/hero-realizacije.jpg">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="720">
+<meta property="og:image:alt" content="Antracitna WPC ograja, WPC obloga balkona in terasa z nadstreškom — dela Ograje Lozar">
 <meta property="og:locale" content="sl_SI">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Ograje Lozar — ograje, nadstreški, terase in fasade">
-<meta name="twitter:description" content="Kakovostno in strokovno, zanesljivo po celotni Sloveniji.">
-<meta name="twitter:image" content="https://robertpezdirc8-prog.github.io/igor-lozar-web/img/hero.jpg">
+<meta name="twitter:description" content="Kakovostno in strokovno, zanesljivo po celotni Sloveniji od leta 1996.">
+<meta name="twitter:image" content="https://robertpezdirc8-prog.github.io/igor-lozar-web/img/hero-realizacije.jpg">
+<meta name="twitter:image:alt" content="Dela Ograje Lozar: WPC ograja, obloga balkona in terasa">
 
-<link rel="icon" type="image/png" href="img/logo-320.png">
-
-<!-- Fonti: self-hosted system stack + Google Fonts z display swap -->
+<!-- Fonti: Google Fonts z display swap -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<link rel="preload" as="image" href="img/hero.jpg" fetchpriority="high">
+<link rel="preload" as="image" fetchpriority="high"
+      imagesrcset="img/hero-realizacije.avif 1280w, img/hero-realizacije.webp 1280w, img/hero-realizacije.jpg 1280w"
+      imagetypes="image/avif, image/webp, image/jpeg">
 <link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/style2.css">
+<script>document.documentElement.classList.add('js');</script>
 
 <!-- Structured data (schema.org) — LocalBusiness / HomeAndConstructionBusiness -->
 <script type="application/ld+json">
@@ -46,11 +55,13 @@
   "alternateName": "Lesne in druge storitve Igor Lozar s.p.",
   "description": "Izdelava in montaža lesenih, WPC, panelnih in kovinskih ograj, lesenih nadstreškov v kombinaciji s steklom, WPC teras in fasad. Delujemo po celotni Sloveniji.",
   "url": "https://robertpezdirc8-prog.github.io/igor-lozar-web/",
-  "logo": "https://robertpezdirc8-prog.github.io/igor-lozar-web/img/logo-640.png",
-  "image": "https://robertpezdirc8-prog.github.io/igor-lozar-web/img/hero.jpg",
+  "logo": "https://robertpezdirc8-prog.github.io/igor-lozar-web/img/logotip-bela.png",
+  "image": "https://robertpezdirc8-prog.github.io/igor-lozar-web/img/hero-realizacije.jpg",
   "telephone": "+38641276195",
   "email": "lesne.storitve@gmail.com",
-  "foundingDate": "2009-01-15",
+  "foundingDate": "1996-06-04",
+  "vatID": "SI22822577",
+  "taxID": "22822577",
   "priceRange": "€€",
   "address": {
     "@type": "PostalAddress",
@@ -60,7 +71,7 @@
     "addressRegion": "Gradac",
     "addressCountry": "SI"
   },
-  "geo": { "@type": "GeoCoordinates", "latitude": 45.5233, "longitude": 15.1619 },
+  "geo": { "@type": "GeoCoordinates", "latitude": 45.5730279, "longitude": 15.2922012 },
   "areaServed": { "@type": "Country", "name": "Slovenija" },
   "sameAs": [
     "https://www.facebook.com/Ograje-Lozar-677329262445918/",
@@ -101,7 +112,7 @@
 <header class="site-head" id="vrh">
   <div class="wrap head-in">
     <a class="brand" href="#vrh" aria-label="Ograje Lozar — domov">
-      <img src="img/logo-320.png" srcset="img/logo-320.png 320w, img/logo-640.png 640w" sizes="150px" alt="Logotip Ograje Lozar" width="150" height="86">
+      <picture class="brand-logo"><source type="image/avif" srcset="img/logotip.avif"><source type="image/webp" srcset="img/logotip.webp"><img src="img/logotip.png" alt="Logotip Ograje Lozar" width="261" height="97" loading="eager" fetchpriority="high" decoding="async"></picture>
       <span class="brand-txt"><strong>Ograje Lozar</strong><small>Igor Lozar s.p.</small></span>
     </a>
     <nav class="main-nav" id="mainNav" aria-label="Glavna navigacija">
@@ -111,7 +122,6 @@
         <li><a href="#postopek">Postopek</a></li>
         <li><a href="#galerija">Realizacije</a></li>
         <li><a href="#o-nas">O nas</a></li>
-        <li><a href="#mnenja">Mnenja</a></li>
         <li><a href="#faq">FAQ</a></li>
         <li><a href="#kontakt">Kontakt</a></li>
       </ul>
@@ -128,30 +138,32 @@
 <!-- HERO -->
 <section class="hero" aria-labelledby="hero-h">
   <picture class="hero-bg">
-    <img src="img/hero.jpg" alt="Izbrana dela Ograje Lozar — lesene in WPC ograje ter nadstreški" width="1600" height="900" fetchpriority="high" decoding="async">
+    <source type="image/avif" srcset="img/hero-realizacije.avif">
+    <source type="image/webp" srcset="img/hero-realizacije.webp">
+    <img src="img/hero-realizacije.jpg" alt="Dela Ograje Lozar: antracitna WPC ograja na betonskem podzidu, WPC obloga balkona in terasa pod nadstreškom" width="1280" height="720" loading="eager" fetchpriority="high" decoding="async">
   </picture>
   <div class="hero-veil" aria-hidden="true"></div>
   <div class="wrap hero-in">
-    <p class="eyebrow">Bela krajina · Slovenija · od 2009</p>
+    <p class="eyebrow">Bela krajina · Slovenija · od 1996</p>
     <h1 id="hero-h">Ograje, ki združijo <em>kakovost</em>, varnost in lep videz vašega doma</h1>
     <p class="lede">Izdelava in montaža lesenih, WPC, panelnih in kovinskih ograj, lesenih nadstreškov s steklom ter WPC teras in fasad. Zanesljivo in natančno — po celotni Sloveniji.</p>
     <div class="hero-ctas">
-      <a class="btn btn-primary" href="#kontakt">Zahtevajte brezplačen izmer in ponudbo</a>
+      <a class="btn btn-primary" href="#kontakt">Zahtevajte brezplačno izmero in ponudbo</a>
       <a class="btn btn-ghost" href="#galerija">Poglej realizacije</a>
     </div>
     <ul class="hero-stats" role="list">
-      <li><strong data-count="16">16</strong><span>let na terenu</span></li>
-      <li><strong data-count="500" data-suffix="+">500+</strong><span>montiranih segmentov</span></li>
+      <li><strong data-count="30">30</strong><span>let samostojno</span></li>
+      <li><strong data-count="7">7</strong><span>vrst storitev</span></li>
       <li><strong>100&nbsp;%</strong><span>celotna Slovenija</span></li>
-      <li><strong>5&nbsp;let</strong><span>garancije za WPC</span></li>
+      <li><strong>0&nbsp;€</strong><span>izmera in svetovanje</span></li>
     </ul>
   </div>
 </section>
 
 <!-- TRUST BAR -->
-<section class="trust" aria-label="Referenčne platforme">
+<section class="trust" aria-label="Poslovni profili">
   <div class="wrap trust-in">
-    <span>Videz in ocene tudi na:</span>
+    <span>Najdete nas tudi na:</span>
     <a href="https://www.mojmojster.net/izvajalec/lesne_in_druge_storitve_igor_lozar" rel="noopener nofollow" target="_blank">MojMojster.net</a>
     <a href="https://www.moja-dejavnost.si/montaza-wpc-ograj-teras-in-fasad-osrednja-slovenija/igor-lozar-sp" rel="noopener nofollow" target="_blank">MojaDejavnost.si</a>
     <a href="https://www.ograje-nadstreski.eu/ograje-nadstreski/ograje-lozar-igor-lozar-s-p" rel="noopener nofollow" target="_blank">Ograje-nadstreski.eu</a>
@@ -165,38 +177,54 @@
     <p class="kicker">Storitve</p>
     <h2>Vse za zunanjo podobo vašega doma — od zasnove do zaključnega detajla</h2>
     <span class="glowline" aria-hidden="true"></span>
-    <p class="sub">Pri Ograjah Lozar naredimo celoten postopek sami: svetovanje, izmero, izdelavo in montažo. Uporabljamo suho rezane lesene profile, kakovosten WPC kompozit in zaščitene kovine.</p>
+    <p class="sub">Pri Ograjah Lozar celoten postopek opravim sam: svetovanje, izmera, izdelava in montaža. Uporabljam suho rezan les, WPC kompozit in zaščitene kovine.</p>
     <div class="cards grid-4">
       <article class="card reveal">
-        <img src="img/delo-lesena-ograj.jpg" alt="Lesena ograja po meri, delo Ograje Lozar" width="900" height="600" loading="lazy">
+        <picture>
+          <source type="image/avif" srcset="img/detajl-ograj-3.avif">
+          <source type="image/webp" srcset="img/detajl-ograj-3.webp">
+          <img src="img/detajl-ograj-3.jpg" alt="Lesena ograja z navpičnimi letvami ob urejenem vrtu" width="690" height="517" loading="lazy" decoding="async">
+        </picture>
         <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 21V6l2-3 2 3v15M12 21V6l2-3 2 3v15"/><path d="M2 10h20M2 15h20"/></svg> Lesene ograje</h3>
         <p>Klasičen videz toplega lesa, po meri izdelano in zaščiteno proti vremenu. Idealno za hiše, posestva in podeželje.</p>
         <a class="more" href="#kontakt">Načrtuj svojo →</a>
       </article>
       <article class="card reveal">
-        <img src="img/delo-wpc.jpg" alt="WPC ograja moderni videz" width="900" height="600" loading="lazy">
+        <picture>
+          <source type="image/avif" srcset="img/detajl-ograj-1.avif">
+          <source type="image/webp" srcset="img/detajl-ograj-1.webp">
+          <img src="img/detajl-ograj-1.jpg" alt="Antracitna WPC ograja s horizontalnimi letvami na betonskem podzidu" width="690" height="517" loading="lazy" decoding="async">
+        </picture>
         <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 21c0-9 4-15 13-16-1 9-5 14-11 14"/><path d="M6 21c2-6 6-10 11-13"/></svg> WPC ograje</h3>
         <p>Lesno-polimerski kompozit brez vzdrževanja: ne gnije, ne bledi, barvno obstojen. Popolnoma sodoben videz.</p>
         <a class="more" href="#kontakt">Načrtuj svojo →</a>
       </article>
       <article class="card reveal">
-        <img src="img/delo-nadstresek.jpg" alt="Leseni nadstrešek v kombinaciji s steklom" width="900" height="600" loading="lazy">
+        <picture>
+          <source type="image/avif" srcset="img/nadstresek-wpc-terasa.avif">
+          <source type="image/webp" srcset="img/nadstresek-wpc-terasa.webp">
+          <img src="img/nadstresek-wpc-terasa.jpg" alt="Nadstrešek z WPC oblogo in WPC teraso ob hiši" width="496" height="253" loading="lazy" decoding="async">
+        </picture>
         <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9L17 7M7 17l-2.1 2.1"/></svg> Nadstreški</h3>
         <p>Leseni nadstreški v kombinaciji s steklom — za teraso, avtomobile in sproščanje na prostem skozi celo leto.</p>
         <a class="more" href="#kontakt">Načrtuj svojega →</a>
       </article>
       <article class="card reveal">
-        <img src="img/delo-garaza-terasa.jpg" alt="WPC terasa in jekleno-betonski detajli" width="1200" height="900" loading="lazy">
+        <picture>
+          <source type="image/avif" srcset="img/delo-garaza-terasa.avif">
+          <source type="image/webp" srcset="img/delo-garaza-terasa.webp">
+          <img src="img/delo-garaza-terasa.jpg" alt="WPC fasadna obloga z lasersko rezanimi dekorativnimi vložki" width="1200" height="900" loading="lazy" decoding="async">
+        </picture>
         <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-8 9 8"/><path d="M5 9.5V21h14V9.5"/><path d="M9 21v-6h6v6"/></svg> Terase in fasade</h3>
-        <p>Montaža WPC teras in oblog fasad — odporno trpežne površine brez oljenja in brušenja.</p>
+        <p>Montaža WPC teras in fasadnih oblog — odporne in trpežne površine brez oljenja in brušenja.</p>
         <a class="more" href="#kontakt">Načrtuj →</a>
       </article>
     </div>
     <div class="mini-grid">
       <div class="mini reveal"><h3>Panelne ograje</h3><p>Hitra, ugodna in urejena rešitev za večje dolžine ograd.</p></div>
       <div class="mini reveal"><h3>Kovinske ograje</h3><p>Statično robustne konstrukcije, požarno varne, dolgoživost.</p></div>
-      <div class="mini reveal"><h3>Dobava in prodaja</h3><p>Material pripeljemo na lokacijo; nudimo tudi prodajo elementov.</p></div>
-      <div class="mini reveal"><h3>Svetovanje po meri</h3><p>Priporočimo material in detajle glede na teren in proračun.</p></div>
+      <div class="mini reveal"><h3>Dobava in prodaja</h3><p>Material pripeljem na lokacijo, poskrbim pa tudi za prodajo elementov.</p></div>
+      <div class="mini reveal"><h3>Svetovanje po meri</h3><p>Priporočim material in detajle glede na teren in proračun.</p></div>
     </div>
   </div>
 </section>
@@ -205,23 +233,27 @@
 <section id="prednosti" class="section section-alt">
   <div class="wrap split">
     <div class="split-img reveal">
-      <img src="img/zakaj-lozar.jpg" alt="Zakaj izbrati Ograje Lozar" width="483" height="451" loading="lazy">
+      <picture>
+        <source type="image/avif" srcset="img/ograj-wpc-vrtna.avif">
+        <source type="image/webp" srcset="img/ograj-wpc-vrtna.webp">
+        <img src="img/ograj-wpc-vrtna.jpg" alt="Daljava antracitne WPC ograje na nizkem podzidu ob vrtni zelenici" width="537" height="261" loading="lazy" decoding="async">
+      </picture>
       <figure class="quote-card">
-        <blockquote>„Najboljše razmerje med kvaliteto in ceno.“</blockquote>
-        <figcaption>— moto podjetja Ograje Lozar</figcaption>
+        <p class="motto">Dogovorjeno velja — postavčno in brez skritih stroškov.</p>
+        <figcaption>Načelo, ki drži od prvega telefona do predaje</figcaption>
       </figure>
     </div>
     <div>
       <p class="kicker">Zakaj izbrati Ograje Lozar</p>
       <h2>Znan obraz iz Bele krajine, delo po celi Sloveniji</h2>
-    <span class="glowline" aria-hidden="true"></span>
+      <span class="glowline" aria-hidden="true"></span>
       <ul class="ticks">
-        <li><strong>Od leta 2009</strong> — samostojno, z dolgo tradicijo mizarske obrti.</li>
-        <li><strong>Celosten postopek</strong> — izmera, izdelava, montaža: en odgovoren izvajalec.</li>
-        <li><strong>Kakovostni materiali</strong> — suhomesnati les, WPC kompozit, zaščitene kovine.</li>
+        <li><strong>Samostojno od leta 1996</strong> — obrt, ki jo v Beli krajini poznajo že tri desetletja.</li>
+        <li><strong>Celosten postopek</strong> — izmera, izdelava, montaža: en sam odgovoren izvajalec.</li>
+        <li><strong>Kakovostni materiali</strong> — suho rezan les, WPC kompozit, zaščitene kovine.</li>
         <li><strong>Natančnost</strong> — linije in ravnine, ki stojijo; detajli, ki se vidijo.</li>
         <li><strong>Fleksibilnost</strong> — po meri, za nove gradnje in adaptacije.</li>
-        <li><strong>Poštena cena</strong> — jasna ponudba brez skritih stroškov.</li>
+        <li><strong>Poštena cena</strong> — jasna, postavčna ponudba brez skritih stroškov.</li>
       </ul>
       <a class="btn btn-primary" href="#kontakt">Zahtevajte brezplačno ponudbo</a>
     </div>
@@ -238,8 +270,8 @@
       <li class="reveal"><span class="stepnum">1</span><h3>Povpraševanje</h3><p>Pokličete ali pišete; skupaj uskladimo idejo, material in okvirni proračun.</p></li>
       <li class="reveal"><span class="stepnum">2</span><h3>Izmera na kraju samem</h3><p>Pridem na ogled, izmerim in svetujem — izmera je brezplačna.</p></li>
       <li class="reveal"><span class="stepnum">3</span><h3>Ponudba</h3><p>Jasna, postavčna ponudba z rokom izvedbe in garancijskimi pogoji.</p></li>
-      <li class="reveal"><span class="stepnum">4</span><h3>Izdelava</h3><p>Elemente pripravimo po meri v delavnici, da je montaža hitra in čista.</p></li>
-      <li class="reveal"><span class="stepnum">5</span><h3>Montaža in predaja</h3><p>Montiramo na lokaciji, uredimo okolico in predamo v uporabo.</p></li>
+      <li class="reveal"><span class="stepnum">4</span><h3>Izdelava</h3><p>Elemente pripravim po meri v delavnici, da je montaža hitra in čista.</p></li>
+      <li class="reveal"><span class="stepnum">5</span><h3>Montaža in predaja</h3><p>Montiram na lokaciji, uredim okolico in predam v uporabo.</p></li>
     </ol>
   </div>
 </section>
@@ -250,23 +282,66 @@
     <p class="kicker light">Realizacije</p>
     <h2>Izbrana dela</h2>
     <span class="glowline" aria-hidden="true"></span>
-    <p class="sub dim">Fotografije so last podjetja Ograje Lozar (ograje-nadstreski.eu).</p>
+    <p class="sub dim">Vse fotografije so last podjetja Ograje Lozar in prikazujejo dejansko izvedena dela.</p>
     <div class="filters" role="group" aria-label="Filtri realizacij">
       <button class="chip" data-f="all" aria-pressed="true">Vse</button>
-      <button class="chip" data-f="les" aria-pressed="false">Lesene ograje</button>
+      <button class="chip" data-f="les" aria-pressed="false">Lesene</button>
       <button class="chip" data-f="wpc" aria-pressed="false">WPC</button>
+      <button class="chip" data-f="terasa" aria-pressed="false">Terase</button>
+      <button class="chip" data-f="fasada" aria-pressed="false">Fasade</button>
       <button class="chip" data-f="nadstresek" aria-pressed="false">Nadstreški</button>
-      <button class="chip" data-f="detajl" aria-pressed="false">Detajli</button>
     </div>
+    <p class="gal-count" id="galCount" role="status"></p>
     <div class="gal">
-      <figure class="reveal" data-cat="les"><a href="img/delo-lesena-ograj.jpg" data-caption="Lesena ograja po meri"><img src="img/delo-lesena-ograj.jpg" alt="Lesena ograja po meri" width="900" height="600" loading="lazy"></a><figcaption>Lesena ograja po meri</figcaption></figure>
-      <figure class="reveal" data-cat="wpc"><a href="img/delo-wpc.jpg" data-caption="WPC ograja — brez vzdrževanja"><img src="img/delo-wpc.jpg" alt="WPC ograja" width="900" height="600" loading="lazy"></a><figcaption>WPC ograja</figcaption></figure>
-      <figure class="reveal" data-cat="nadstresek"><a href="img/delo-nadstresek.jpg" data-caption="Leseni nadstrešek s steklom"><img src="img/delo-nadstresek.jpg" alt="Leseni nadstrešek s steklom" width="900" height="600" loading="lazy"></a><figcaption>Nadstrešek s steklom</figcaption></figure>
-      <figure class="reveal" data-cat="wpc"><a href="img/delo-garaza-terasa.jpg" data-caption="Terasa in ograja — kombinacija materialov"><img src="img/delo-garaza-terasa.jpg" alt="Terasa in ograja" width="1200" height="900" loading="lazy"></a><figcaption>Terasa in ograja</figcaption></figure>
-      <figure class="reveal" data-cat="les"><a href="img/detajl-ograj-1.jpg" data-caption="Detajl lesene ograje"><img src="img/detajl-ograj-1.jpg" alt="Detajl lesene ograje" width="900" height="600" loading="lazy"></a><figcaption>Detajl</figcaption></figure>
-      <figure class="reveal" data-cat="wpc"><a href="img/detajl-ograj-2.jpg" data-caption="Detajl WPC ograje"><img src="img/detajl-ograj-2.jpg" alt="Detajl WPC ograje" width="900" height="600" loading="lazy"></a><figcaption>Detajl</figcaption></figure>
-      <figure class="reveal" data-cat="detajl"><a href="img/detajl-ograj-3.jpg" data-caption="Robustni vogalni spoj"><img src="img/detajl-ograj-3.jpg" alt="Vogalni spoj ograje" width="900" height="600" loading="lazy"></a><figcaption>Vogalni spoj</figcaption></figure>
-      <figure class="reveal" data-cat="les"><a href="img/detajl-ograj-4.jpg" data-caption="Vratca z okovjem po meri"><img src="img/detajl-ograj-4.jpg" alt="Vratca z okovjem" width="900" height="600" loading="lazy"></a><figcaption>Vratca</figcaption></figure>
+      <figure class="reveal" data-cat="wpc"><a href="img/ograj-wpc-vrtna.jpg"><picture>
+        <source type="image/avif" srcset="img/ograj-wpc-vrtna.avif"><source type="image/webp" srcset="img/ograj-wpc-vrtna.webp">
+        <img src="img/ograj-wpc-vrtna.jpg" alt="Antracitna WPC ograja s horizontalnimi letvami ob nizkem podzidu in vrtni zelenici" width="537" height="261" loading="lazy" decoding="async"></picture></a>
+        <figcaption>WPC ograja v antracitu ob vrtni zelenici</figcaption></figure>
+
+      <figure class="reveal" data-cat="wpc"><a href="img/detajl-ograj-1.jpg"><picture>
+        <source type="image/avif" srcset="img/detajl-ograj-1.avif"><source type="image/webp" srcset="img/detajl-ograj-1.webp">
+        <img src="img/detajl-ograj-1.jpg" alt="Antracitna WPC ograja s horizontalnimi letvami na betonskem podzidu ob tlakovani poti" width="690" height="517" loading="lazy" decoding="async"></picture></a>
+        <figcaption>WPC ograja na podzidu ob poti</figcaption></figure>
+
+      <figure class="reveal" data-cat="les"><a href="img/detajl-ograj-3.jpg"><picture>
+        <source type="image/avif" srcset="img/detajl-ograj-3.avif"><source type="image/webp" srcset="img/detajl-ograj-3.webp">
+        <img src="img/detajl-ograj-3.jpg" alt="Lesena ograja z navpičnimi letvami okrog urejenega vrta z leseno lopo in betonskimi potmi" width="690" height="517" loading="lazy" decoding="async"></picture></a>
+        <figcaption>Lesena ograja okrog vrta z lopo</figcaption></figure>
+
+      <figure class="reveal" data-cat="terasa wpc"><a href="img/detajl-ograj-4.jpg"><picture>
+        <source type="image/avif" srcset="img/detajl-ograj-4.avif"><source type="image/webp" srcset="img/detajl-ograj-4.webp">
+        <img src="img/detajl-ograj-4.jpg" alt="Nadkrita terasa z WPC tlemi in vodoravno WPC ograjo v rjavem odtenku" width="690" height="517" loading="lazy" decoding="async"></picture></a>
+        <figcaption>Nadkrita terasa: WPC tla in WPC ograja</figcaption></figure>
+
+      <figure class="reveal" data-cat="terasa wpc"><a href="img/detajl-ograj-2.jpg"><picture>
+        <source type="image/avif" srcset="img/detajl-ograj-2.avif"><source type="image/webp" srcset="img/detajl-ograj-2.webp">
+        <img src="img/detajl-ograj-2.jpg" alt="WPC terasa pod ravnim nadstreškom, robno nasuta v gramoz" width="690" height="517" loading="lazy" decoding="async"></picture></a>
+        <figcaption>WPC terasa pod nadstreškom</figcaption></figure>
+
+      <figure class="reveal" data-cat="fasada wpc"><a href="img/delo-garaza-terasa.jpg"><picture>
+        <source type="image/avif" srcset="img/delo-garaza-terasa.avif"><source type="image/webp" srcset="img/delo-garaza-terasa.webp">
+        <img src="img/delo-garaza-terasa.jpg" alt="WPC fasadna obloga z lasersko rezanimi dekorativnimi vložki" width="1200" height="900" loading="lazy" decoding="async"></picture></a>
+        <figcaption>WPC fasada z rezanimi vložki</figcaption></figure>
+
+      <figure class="reveal" data-cat="wpc fasada"><a href="img/delo-wpc.jpg"><picture>
+        <source type="image/avif" srcset="img/delo-wpc.avif"><source type="image/webp" srcset="img/delo-wpc.webp">
+        <img src="img/delo-wpc.jpg" alt="Tri fotografije iste hiše: WPC obloga balkonskih ograj v dveh nadstropjih" width="780" height="600" loading="lazy" decoding="async"></picture></a>
+        <figcaption>WPC obloga balkonskih ograj — trije pogledi</figcaption></figure>
+
+      <figure class="reveal" data-cat="fasada"><a href="img/ograj-lesena-balkon.jpg"><picture>
+        <source type="image/avif" srcset="img/ograj-lesena-balkon.avif"><source type="image/webp" srcset="img/ograj-lesena-balkon.webp">
+        <img src="img/ograj-lesena-balkon.jpg" alt="Hiša s fasadno oblogo v hrastovem odtenku in balkonsko ograjo v istem videzu" width="537" height="323" loading="lazy" decoding="async"></picture></a>
+        <figcaption>Fasada in balkonska ograja v istem odtenku</figcaption></figure>
+
+      <figure class="reveal" data-cat="fasada"><a href="img/ograj-steklena-balkon.jpg"><picture>
+        <source type="image/avif" srcset="img/ograj-steklena-balkon.avif"><source type="image/webp" srcset="img/ograj-steklena-balkon.webp">
+        <img src="img/ograj-steklena-balkon.jpg" alt="Steklena balkonska ograja pod WPC oblogo čela hiše" width="496" height="336" loading="lazy" decoding="async"></picture></a>
+        <figcaption>Steklena balkonska ograja</figcaption></figure>
+
+      <figure class="reveal" data-cat="nadstresek terasa wpc"><a href="img/nadstresek-wpc-terasa.jpg"><picture>
+        <source type="image/avif" srcset="img/nadstresek-wpc-terasa.avif"><source type="image/webp" srcset="img/nadstresek-wpc-terasa.webp">
+        <img src="img/nadstresek-wpc-terasa.jpg" alt="Nadstrešek s stolpom v hrastovem odtenku in WPC teraso ob zelenjavnem vrtu" width="496" height="253" loading="lazy" decoding="async"></picture></a>
+        <figcaption>Nadstrešek z WPC teraso in oblogo stene</figcaption></figure>
     </div>
   </div>
 </section>
@@ -277,48 +352,27 @@
     <div>
       <p class="kicker">O nas</p>
       <h2>Podjetje, ki ga vodita beseda in žaga</h2>
-    <span class="glowline" aria-hidden="true"></span>
-      <p><strong>OGRAJE LOZAR, Igor Lozar s.p.</strong> je družinsko obrtno podjetje z Gribelj pri Gradcu v Beli krajini. Registrirano je januarja <strong>2009</strong> kot <em>Lesne in druge storitve</em>, danes pa je prepoznano predvsem po ograjah in nadstreških.</p>
-      <p>Smo majhen, zbit mojstrski tim: kar naročimo, tudi naredimo. Zaradi tega se rok drži, kakovost pa se pozna v vsakem spoju. Opravljamo <strong>izdelavo, prodajo, dobavo in montažo</strong> ograj in lesenih nadstreškov v kombinaciji s steklom, montiramo pa tudi <strong>WPC terase in fasade</strong>.</p>
-      <p>Matrica dejavnosti je les, srce pa nam je pri detajlih, ki hišo dvignejo nad povprečje.</p>
+      <span class="glowline" aria-hidden="true"></span>
+      <p><strong>Igor Lozar s.p.</strong>, ki posluje pod imenom <strong>Ograje Lozar</strong>, je samostojni obrtnik iz Gribelj pri Gradcu v Beli krajini. Registriran je <strong>4. junija 1996</strong> pod prvotnim imenom <em>Lesne in druge storitve</em>, danes pa ga stranke prepoznavajo predvsem po ograjah in nadstreških.</p>
+      <p>Delo vodim sam: kar se dogovoriva, tudi naredim. Zaradi tega se rok drži, kakovost pa se pozna v vsakem spoju. Opravljam <strong>izdelavo, prodajo, dobavo in montažo</strong> ograj in lesenih nadstreškov v kombinaciji s steklom, montiram pa tudi <strong>WPC terase in fasade</strong>.</p>
+      <p>Osnova dejavnosti je les, srce pa je pri detajlih, ki hišo dvignejo nad povprečje.</p>
       <dl class="facts">
-        <div><dt>Ustanovljeno</dt><dd>15. 1. 2009</dd></div>
+        <div><dt>Registriran</dt><dd>4. 6. 1996</dd></div>
         <div><dt>Sedež</dt><dd>Griblje 63A, 8332 Gradac</dd></div>
-        <div><dt>Davčna št.</dt><dd>SI16668442</dd></div>
-        <div><dt>Matična št.</dt><dd>5546572</dd></div>
+        <div><dt>Dejavnost</dt><dd>F43.320 Vgrajevanje stavbnega pohištva</dd></div>
+        <div><dt>Matična št.</dt><dd>5546572000</dd></div>
+        <div><dt>Davčna št.</dt><dd>22822577</dd></div>
+        <div><dt>ID za DDV</dt><dd>SI22822577</dd></div>
       </dl>
     </div>
     <div class="mapbox reveal">
-      <img src="img/detajl-ograj-3.jpg" alt="Podroben spoj ograje, mojstrsko delo" width="900" height="600" loading="lazy">
-      <div class="map-note">🚚 Prisotni po vsej Sloveniji — osrednja regija, Dolenjska, Bela krajina in naprej.</div>
+      <picture>
+        <source type="image/avif" srcset="img/ograj-lesena-balkon.avif">
+        <source type="image/webp" srcset="img/ograj-lesena-balkon.webp">
+        <img src="img/ograj-lesena-balkon.jpg" alt="Hiša s fasadno oblogo v hrastovem odtenku in balkonsko ograjo v istem videzu" width="537" height="323" loading="lazy" decoding="async">
+      </picture>
+      <div class="map-note">🚚 Prisoten po vsej Sloveniji — osrednja regija, Dolenjska, Bela krajina in naprej.</div>
     </div>
-  </div>
-</section>
-
-<!-- MNENJA -->
-<section id="mnenja" class="section section-alt">
-  <div class="wrap">
-    <p class="kicker">Mnenja strank</p>
-    <h2>Kaj pravijo tisti, ki že imajo našo ograjo</h2>
-    <span class="glowline" aria-hidden="true"></span>
-    <div class="grid-3">
-      <article class="rev-card reveal">
-        <p class="stars" aria-label="Ocena 5 od 5">★★★★★</p>
-        <blockquote>„Dogovorjena cela dolžina ograje, rok držan, detajli popolni. Priporočam vsem, ki hočejo mirno spati pod novo teraso.“</blockquote>
-        <footer>— Stranka, Novo mesto</footer>
-      </article>
-      <article class="rev-card reveal">
-        <p class="stars" aria-label="Ocena 5 od 5">★★★★★</p>
-        <blockquote>„WPC terasa izgleda kot nova tudi po dveh zimah. Ni oljenja, ni brušenja — samo uživamo.“</blockquote>
-        <footer>— Stranka, Krško</footer>
-      </article>
-      <article class="rev-card reveal">
-        <p class="stars" aria-label="Ocena 5 od 5">★★★★★</p>
-        <blockquote>„Igor je svetoval material, ki smo ga sprva hoteli narobe. Rezultat je boljši in cenejši, kot smo načrtovali.“</blockquote>
-        <footer>— Stranka, Ljubljana</footer>
-      </article>
-    </div>
-    <p class="rev-src">Ocene zbirane prek platform MojMojster.net in neposrednih povratnih informacij strank.</p>
   </div>
 </section>
 
@@ -329,24 +383,24 @@
     <h2>Kar stranke najpogosteje vprašajo</h2>
     <span class="glowline" aria-hidden="true"></span>
     <details class="reveal" open>
-      <summary>Koliko stane ograja na metro?</summary>
+      <summary>Koliko stane ograja na meter?</summary>
       <p>Cena je odvisna od materiala (les / WPC / kovina), višine, talnega tipa in terena. Po brezplačni izmeri dobite postavčno ponudbo na meter tekoči — brez skritih stroškov.</p>
     </details>
     <details class="reveal">
-      <summary>Katera je razlika med lesom in WPC-jem?</summary>
+      <summary>Kakšna je razlika med lesom in WPC-jem?</summary>
       <p>Les daje topel, naraven videz in zahteva občasno zaščito (oljenje ali lazura). WPC (lesno-polimerski kompozit) je praktično brez vzdrževanja, barvno obstojen in odporen proti vlagi — priljubljen pri novejših fasadah.</p>
     </details>
     <details class="reveal">
       <summary>Kolikšen je običajen rok izvedbe?</summary>
-      <p>Od potrditve ponudbe običajno 2–6 tednov, odvisno od sezone in obsega. Manjše sanacije pogosto opravimo sproti.</p>
+      <p>Od potrditve ponudbe običajno 2–6 tednov, odvisno od sezone in obsega. Manjše sanacije pogosto opravim sproti.</p>
     </details>
     <details class="reveal">
-      <summary>A ste vezani samo na Belo krajino?</summary>
-      <p>Ne. Sedišče imamo v Gribljah pri Gradcu, delujemo pa po celotni Sloveniji — od Pomurja do Primorske.</p>
+      <summary>Ali ste vezani samo na Belo krajino?</summary>
+      <p>Ne. Sedež imam v Gribljah pri Gradcu, delujem pa po celotni Sloveniji — od Pomurja do Primorske.</p>
     </details>
     <details class="reveal">
-      <summary>A nudirate brezplačen izmer?</summary>
-      <p>Da. Izmer in svetovanje na kraju samem sta brezplačna in neobligatorna.</p>
+      <summary>Ali nudite brezplačno izmero?</summary>
+      <p>Da. Izmera in svetovanje na kraju samem sta brezplačna in neobvezujoča.</p>
     </details>
   </div>
 </section>
@@ -356,9 +410,9 @@
   <div class="wrap split">
     <div>
       <p class="kicker light">Kontakt</p>
-      <h2>Poiščajte svojo novo ograjo že danes</h2>
-    <span class="glowline" aria-hidden="true"></span>
-      <p>Kliknite, pokličite ali pišite — odgovorimo hitro, običajno istega dne.</p>
+      <h2>Poiščite svojo novo ograjo že danes</h2>
+      <span class="glowline" aria-hidden="true"></span>
+      <p>Kliknite, pokličite ali pišite — odgovorim hitro, običajno istega dne.</p>
       <ul class="contact-list">
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1z"/></svg><strong>Telefon:</strong> <a href="tel:+38641276195">041 276-195</a></li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><strong>E-pošta:</strong> <a href="mailto:lesne.storitve@gmail.com">lesne.storitve@gmail.com</a></li>
@@ -366,29 +420,37 @@
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><strong>Delovni čas:</strong> pon–pet 8.00–18.00, sob 8.00–13.00</li>
       </ul>
       <div class="socials">
-        <a href="https://www.facebook.com/Ograje-Lozar-677329262445918/" target="_blank" rel="noopener nofollow" aria-label="Facebook strani Ograje Lozar">Facebook</a>
+        <a href="https://www.facebook.com/Ograje-Lozar-677329262445918/" target="_blank" rel="noopener nofollow" aria-label="Facebook stran Ograje Lozar">Facebook</a>
         <a href="https://www.mojmojster.net/izvajalec/lesne_in_druge_storitve_igor_lozar" target="_blank" rel="noopener nofollow" aria-label="Profil na MojMojster.net">MojMojster</a>
       </div>
       <a class="wa-btn" href="https://wa.me/38641276195?text=Pozdravljeni%2C%20zanima%20me%20ograja%2Fnadstre%C5%A1ek." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M12 3a9 9 0 0 0-9 9 8.6 8.6 0 0 0 1.3 4.6L3 21l4.6-1.2A9 9 0 1 0 12 3z"/><path d="M8.8 9.6c1.4 3 2.6 4.2 5.6 5.6"/></svg>Pišite na WhatsApp</a>
     </div>
-    <form class="quote-form reveal" id="quoteForm" action="#" method="post" novalidate autocomplete="on">
-      <input type="text" name="podjetje" tabindex="-1" aria-hidden="true" autocomplete="off" style="position:absolute;left:-9999px" >
+
+    <form class="quote-form reveal" id="quoteForm" data-endpoint="" novalidate autocomplete="on">
+      <input type="text" name="podjetje" class="hp" tabindex="-1" aria-hidden="true" autocomplete="off">
       <h3>Brezplačno povpraševanje</h3>
       <label>Naziv / ime <input required name="ime" autocomplete="name" placeholder="Janez Novak"></label>
       <label>Telefon <input required name="tel" type="tel" autocomplete="tel" placeholder="041 000 000"></label>
       <label>E-pošta <input required name="mail" type="email" autocomplete="email" placeholder="janez@example.si"></label>
-      <label class="full">Lokacija objekta <input name="lok" placeholder="Kraj / pošta"></label>
+      <label class="full">Lokacija objekta <input name="lok" autocomplete="address-level2" placeholder="Kraj / pošta"></label>
       <label class="full">Kaj vas zanima
         <select name="vrsta">
           <option>Lesena ograja</option><option>WPC ograja</option><option>Panelna ograja</option>
           <option>Kovinska ograja</option><option>Nadstrešek s steklom</option><option>WPC terasa</option><option>WPC fasada</option>
         </select>
       </label>
-      <label>Okvirna dolžina / m² <input name="mera" placeholder="npr. 40 m ali 25 m²"></label>
-      <label class="full">Sporočilo <textarea name="msg" rows="4" placeholder="Opišite kratko projekt..."></textarea></label>
-      <label class="full chk"><input type="checkbox" required name="gdpr"> Strinjam se, da me kontaktirate glede povpraševanja (GDPR).</label>
-      <button class="btn btn-primary" type="submit">Pošlji povpraševanje</button>
-      <p class="form-ok" id="formOk" hidden>✅ Hvala! Povpraševanje je zabeleženo — pokličemo vas v najkrajšem možnem času.</p>
+      <label>Okvirna dolžina / m² <input name="mera" autocomplete="off" placeholder="npr. 40 m ali 25 m²"></label>
+      <label class="full">Sporočilo <textarea name="msg" rows="4" placeholder="Kratko opišite projekt …"></textarea></label>
+      <label class="full chk"><input type="checkbox" required name="gdpr"> <span>Strinjam se, da me podjetje Ograje Lozar kontaktira v zvezi s tem povpraševanjem. Osebnih podatkov ne posredujem tretjim osebam in jih hranim največ 12 mesecev. Podrobneje v <a href="zasebnost.html">izjavi o zasebnosti</a>.</span></label>
+      <p class="form-note">Spletna pošiljka je trenutno izklopljena: obrazec sestavi sporočilo in ga odpre v vašem e-poštnem programu ali v WhatsAppu. Tako do Igorja pride vsak podatek, ki ga vpišete.</p>
+      <button class="btn btn-primary" type="submit">Pripravi sporočilo</button>
+      <div class="form-result" id="formResult" role="status" aria-live="polite" hidden>
+        <p id="formMsg"></p>
+        <div class="form-actions" id="formActions" hidden>
+          <a class="btn btn-primary btn-sm" id="sendMail" href="mailto:lesne.storitve@gmail.com?subject=Povpra%C5%A1evanje%20s%20spletne%20strani">Odpošlji v e-pošti</a>
+          <a class="wa-btn wa-btn--sm" id="sendWa" href="https://wa.me/38641276195" target="_blank" rel="noopener">Odpri v WhatsAppu</a>
+        </div>
+      </div>
     </form>
   </div>
 </section>
@@ -398,16 +460,16 @@
 <footer class="site-foot">
   <div class="wrap foot-in">
     <div>
-      <img class="foot-logo" src="img/logo-320.png" alt="Ograje Lozar logotip" width="120" height="69" loading="lazy">
+      <picture><source type="image/avif" srcset="img/logotip.avif"><source type="image/webp" srcset="img/logotip.webp"><img class="foot-logo" src="img/logotip.png" alt="Logotip Ograje Lozar" width="261" height="97" loading="lazy" decoding="async"></picture>
       <p>Ograje Lozar — Igor Lozar s.p.<br>Griblje 63A, 8332 Gradac</p>
     </div>
-    <nav aria-label="Noge">
-      <a href="#storitve">Storitve</a> · <a href="#galerija">Realizacije</a> · <a href="#o-nas">O nas</a> · <a href="#kontakt">Kontakt</a> · <a href="#vrh">Na vrh ↑</a>
+    <nav aria-label="Povezave v nogi">
+      <a href="#storitve">Storitve</a> · <a href="#galerija">Realizacije</a> · <a href="#o-nas">O nas</a> · <a href="#kontakt">Kontakt</a> · <a href="zasebnost.html">Zasebnost</a> · <a href="#vrh">Na vrh ↑</a>
     </nav>
     <div class="foot-meta">
-      <p>ID za DDV: SI16668442 · Matična: 5546572</p>
+      <p>Matična: 5546572000 · Davčna: 22822577 · ID za DDV: SI22822577</p>
       <p>© <span id="leto">2026</span> Ograje Lozar. Vse pravice pridržane.</p>
-      <p class="tiny">Slike: lastništvo podjetja Ograje Lozar (ograje-nadstreski.eu).</p>
+      <p class="tiny">Vse fotografije na strani so last podjetja Ograje Lozar.</p>
     </div>
   </div>
 </footer>
@@ -415,7 +477,7 @@
 <button class="to-top" id="toTop" aria-label="Nazaj na vrh strani">↑</button>
 
 <!-- Sticky mobile call bar -->
-<div class="sticky-call" aria-hidden="false">
+<div class="sticky-call">
   <a href="tel:+38641276195">📞 Pokliči</a>
   <a href="#kontakt">✉️ Povpraševanje</a>
 </div>
@@ -425,7 +487,7 @@
   <button class="lb-close" id="lbClose" aria-label="Zapri">×</button>
   <button class="lb-prev" id="lbPrev" aria-label="Prejšnja">‹</button>
   <span class="lb-count" id="lbCount" aria-live="polite"></span>
-  <figure><img id="lbImg" src="" alt=""><figcaption id="lbCap"></figcaption></figure>
+  <figure><img id="lbImg" alt=""><figcaption id="lbCap"></figcaption></figure>
   <button class="lb-next" id="lbNext" aria-label="Naslednja">›</button>
 </div>
 
