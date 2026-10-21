@@ -11,3 +11,4 @@ desktop.ini
 # Začasno
 *.log
 *.tmp
+__pycache__/

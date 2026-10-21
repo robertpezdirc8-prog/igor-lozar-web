@@ -445,7 +445,8 @@ def check_language():
             meta = ""
         flat = re.sub(r"\s+", " ", text)
         for src, label in ((flat, ""), (re.sub(r"\s+", " ", meta), "meta: ")):
-            for w in ("neobligatorna", "Poi" + chr(353) + "čajte", "kvaliteto", "Daljaven", "Vsota fotografije"):
+            for w in ("neobligatorna", "Poi" + chr(353) + "čajte", "kvaliteto", "Daljaven", "Vsota fotografije",
+                      "Na" + chr(269) + "rtuj svojega"):
                 if w in src:
                     bad.append(fname + ": " + label + "'" + w + "'")
             for m in re.finditer(r"\S\s([,.;:!?])", src):

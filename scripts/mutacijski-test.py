@@ -129,6 +129,8 @@ MUTACIJE = [
      "Slovenscina brez znanih napak"),
     ("patch", "index.html", 'content="Ograje Lozar — kakovostne ograje',
      'content="Ograje Lozar — kvaliteto ograje', "Slovenscina brez znanih napak"),
+    ("patch", "index.html", "Načrtuj svoj →", "Načrtuj svojega →",
+     "Slovenscina brez znanih napak"),
     ("patch", "README.md", "scripts/preveri.py", "scripts/ne-obstaja.py",
      "README sklicuje samo obstajajoca orodja"),
     ("patch", "js/main.js", "formResult", "formOk",
