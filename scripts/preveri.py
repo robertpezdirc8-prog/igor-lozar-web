@@ -297,6 +297,8 @@ BANNED = {
     "prazen src": 'src=""',
     "nepojasnjena vizitka kot realizacija": "vizitka-ograje-lozar",
     "slika z vtisnjenim napisom": "delo-nadstresek",
+    "nepreverjeno stevilo pogledov v napisu": "trije pogledi",
+    "nepreverjeno stevilo fotografij v altu": "Tri fotografije",
     "nepreverjen password/secret": "ghp_",
 }
 
@@ -324,6 +326,40 @@ def check_filters(html):
     check("Vsak chip vrne vsaj eno realizacijo", not empty, ", ".join(empty))
     n = len(re.findall(r'<figure class="reveal" data-cat=', html))
     check("Galerija ima vec kot 8 realizacij", n >= 8, f"najdenih {n}")
+
+
+# ---------------------------------------------------------------- 7b.napisi
+# Napis pod sliko mora povedati, kaj je na njej. Genericna beseda ("Detajl",
+# "Vratca") je bila prav tisto, kar je stranka ocutila kot manjkajoc opis.
+GENERICNE_NAPISE = {
+    "detajl", "detajli", "uvip", "uvipi", "pogled", "pogledi", "delo", "slika",
+    "realizacija", "realizacije", "vratca", "balkon", "ograja", "terasa",
+    "fasada", "nadstresek", "nadstrešek", "brez napisa",
+}
+MOTIVI = ("ograj", "teras", "fasad", "nadstreš", "balkon", "podzid", "stopnic",
+          "letv", "obloga", "podest", "nasip", "gramoz", "vhod", "dveri")
+
+
+def check_captions(html):
+    figs = re.findall(r'<figure class="reveal" data-cat=[^>]*>(.*?)</figure>', html, re.S)
+    napisi = [re.search(r"<figcaption>(.*?)</figcaption>", f, re.S) for f in figs]
+    manjkajoc = [i for i, n in enumerate(napisi, 1) if not n or not n.group(1).strip()]
+    check("Vsaka realizacija ima napis", not manjkajoc, f"figure {manjkajoc}")
+
+    besedila = [n.group(1).strip() for n in napisi if n]
+    prani = [re.sub(r"[.!?:\u2014\-]+$", "", b).strip().lower() for b in besedila]
+    genericni = [b for b, p in zip(besedila, prani) if p in GENERICNE_NAPISE]
+    check("Napis ni genericna beseda", not genericni, "; ".join(genericni))
+
+    kratki = [b for b in besedila if len(b) < 15]
+    check("Napis je dovolj dolg, da kaj pove", not kratki, "; ".join(kratki))
+
+    brez_motiva = [b for b in besedila if not any(k in b.lower() for k in MOTIVI)]
+    check("Napis omenja dejanski motiv", not brez_motiva, "; ".join(brez_motiva))
+
+    alti = re.findall(r'<img src="img/[^"]+" alt="([^"]+)"', html)
+    prazni_alti = [i for i, a in enumerate(alti, 1) if len(a) < 20]
+    check("Alt besedilo slike je opisno", not prazni_alti, f"indeksi {prazni_alti}")
 
 
 # ---------------------------------------------------------------- 8.CSP
@@ -520,6 +556,7 @@ def main():
         ("barve", check_contrasts),
         ("trditve", check_banned),
         ("filtri", lambda: check_filters(html)),
+        ("napisi", lambda: check_captions(html)),
         ("csp", lambda: check_csp(html)),
         ("rep", check_tail),
         ("obrazec", lambda: check_form(html, js)),
