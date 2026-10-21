@@ -290,8 +290,10 @@ details p{margin:0;padding:0 2.4rem 1.2rem 1.3rem;color:var(--muted)}
   .foot-in{grid-template-columns:1fr}
   .quote-form{grid-template-columns:1fr}
   .sticky-call{display:flex}
-  body{padding-bottom:60px}
-  .to-top{bottom:84px;right:12px}
+  /* Vrstica zraste z varnostnim robom zaslona, zato morata za njo rasti tudi
+     odmik telesa in gumb na vrh — sicer prekrijeta nogo. */
+  body{padding-bottom:calc(60px + env(safe-area-inset-bottom))}
+  .to-top{bottom:calc(84px + env(safe-area-inset-bottom));right:12px}
 }
 @media (max-width:560px){
   .grid-4,.mini-grid{grid-template-columns:1fr}

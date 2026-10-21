@@ -476,6 +476,20 @@ def check_readme():
           "meta http-equiv" in lower and "_headers" in lower)
 
 
+def check_fixed_bar():
+    css = read("css/style.css")
+    rob = "env(safe-area-inset-bottom)"
+    vrstice = re.findall(r"\.sticky-call\{([^}]*)\}", css)
+    check("Fiksna vrstica na dnu upošteva varnostni rob zaslona",
+          any(rob in v for v in vrstice), "; ".join(vrstice[:2]))
+    odmiki = re.findall(r"body\{padding-bottom:([^}]+)\}", css)
+    check("Odmik telesa pod vrstico zraste z varnostnim robom",
+          any(rob in v for v in odmiki), "; ".join(odmiki))
+    dna = re.findall(r"\.to-top\{bottom:([^;}]+)", css)
+    check("Gumb na vrh ostane nad vrstico tudi z varnostnim robom",
+          any(rob in v for v in dna), "; ".join(dna))
+
+
 def check_ci():
     rel = os.path.join(".github", "workflows", "preveri.yml")
     obstaja = os.path.isfile(os.path.join(ROOT, rel))
@@ -511,6 +525,7 @@ def main():
         ("obrazec", lambda: check_form(html, js)),
         ("jezik", check_language),
         ("readme", check_readme),
+        ("vrstica", check_fixed_bar),
         ("ci", check_ci),
     ]
     for name, fn in prehodi:
